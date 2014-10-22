@@ -1,0 +1,6 @@
+{
+  "name": "angular-treeview",
+  "devDependencies": {
+    "angular": "~1.2.2"
+  }
+}

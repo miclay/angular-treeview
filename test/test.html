@@ -1,0 +1,96 @@
+<html>
+<head>
+	<title>treeview test</title>
+	<script src="../vendor/angular/angular.min.js"></script>
+	<script src="../src/treeview.js"></script>
+</head>
+<body ng-controller="test">
+
+<div 
+	treeview 
+	tree-conf="config" 
+	tree-model="data"></div>
+
+<script>
+	angular.bootstrap(document,['treeview']);
+
+	function test($scope) {
+		var createTree=function(){
+			var tree=[
+				{
+					id:'root_1',
+					text:'root_1',
+					href:'',
+					children:[
+						{
+							id:'node_1',
+							text:'node_1',
+							href:'',
+							expended:true,
+							children:[
+								{
+									id:'node_1',
+									text:'node_1',
+									href:''
+								},
+								{
+									id:'node_1',
+									text:'node_1',
+									href:''
+								}
+							]
+						},
+						{
+							id:'node_2',
+							text:'node_2',
+							href:''
+						},
+						{
+							id:'node_3',
+							text:'node_3',
+							href:'',
+							children:[
+								{
+									id:'node_1',
+									text:'node_1',
+									href:''
+								}
+							]
+						}
+					]
+				},
+				{
+					id:'root_2',
+					text:'root_2',
+					href:''
+				}
+			];
+			return tree;
+		};
+
+		//setTimeout(function(){
+			$scope.data=createTree();
+			setTimeout(function(){
+				$scope.data.push({
+					id:'root_3',
+					text:'root_3',
+					href:'',
+					children:[
+						{
+							id:'add',
+							text:'add',
+							href:''
+						}
+					]
+				});
+			},3000);
+		//},1000);
+
+		$scope.config={
+			titleModelName:'text'
+		};
+	};
+</script>
+
+</body>
+</html>
